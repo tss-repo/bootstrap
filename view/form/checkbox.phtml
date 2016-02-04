@@ -1,0 +1,13 @@
+<?php
+$messages = $element->getMessages();
+?>
+<div class="checkbox<?php echo !empty($messages) ? ' has-error': ''; ?>">
+    <?php
+    echo $this->formLabel($element, $this->formCheckbox($element), 'append');
+    echo $this->formElementErrors()
+        ->setMessageOpenFormat('<span%s>')
+        ->setMessageSeparatorString('</span><span>')
+        ->setMessageCloseString('</span>')
+        ->render($element, array('class' => 'help-block'));
+    ?>
+</div>

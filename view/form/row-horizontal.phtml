@@ -1,0 +1,9 @@
+<div class="form-group">
+    <?php echo $this->formLabel($element); ?>
+    <div class="<?php echo $element->getOption('col-element'); ?>">
+        <?php
+        echo $this->formElement($element);
+        echo $this->formElementErrors($element);
+        ?>
+    </div>
+</div>

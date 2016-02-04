@@ -1,0 +1,43 @@
+<div id="flashmessenger">
+    <?php
+    // default
+    if ($this->flashMessenger()->hasCurrentMessages()) {
+        echo $this->flashMessenger()->renderCurrent('default', array('alert', 'alert-success', 'animated', 'shake'));
+        $this->flashMessenger()->clearCurrentMessagesFromNamespace('default');
+    } else {
+        echo $this->flashMessenger()->render('default', array('alert', 'alert-success', 'animated', 'shake'));
+    }
+
+    // success
+    if ($this->flashMessenger()->hasCurrentSuccessMessages()) {
+        echo $this->flashMessenger()->renderCurrent('success', array('alert', 'alert-success', 'animated', 'shake'));
+        $this->flashMessenger()->clearCurrentMessagesFromNamespace('success');
+    } else {
+        echo $this->flashMessenger()->render('success', array('alert', 'alert-success', 'animated', 'shake'));
+    }
+
+    // info
+    if ($this->flashMessenger()->hasCurrentInfoMessages()) {
+        echo $this->flashMessenger()->renderCurrent('info', array('alert', 'alert-info', 'animated', 'shake'));
+        $this->flashMessenger()->clearCurrentMessagesFromNamespace('info');
+    } else {
+        echo $this->flashMessenger()->render('info', array('alert', 'alert-info', 'animated', 'shake'));
+    }
+
+    // warning
+    if ($this->flashMessenger()->hasCurrentWarningMessages()) {
+        echo $this->flashMessenger()->renderCurrent('warning', array('alert', 'alert-warning', 'animated', 'shake'));
+        $this->flashMessenger()->clearCurrentMessagesFromNamespace('warning');
+    } else {
+        echo $this->flashMessenger()->render('warning', array('alert', 'alert-warning', 'animated', 'shake'));
+    }
+
+    // error
+    if ($this->flashMessenger()->hasCurrentErrorMessages()) {
+        echo $this->flashMessenger()->renderCurrent('error', array('alert', 'alert-danger', 'animated', 'shake'));
+        $this->flashMessenger()->clearCurrentMessagesFromNamespace('error');
+    } else {
+        echo $this->flashMessenger()->render('error', array('alert', 'alert-danger', 'animated', 'shake'));
+    }
+    ?>
+</div>
