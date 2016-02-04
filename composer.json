@@ -22,5 +22,6 @@
     "psr-0": {
       "TSS\\Bootstrap\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
