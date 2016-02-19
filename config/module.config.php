@@ -10,6 +10,8 @@ namespace TSS\Bootstrap;
 
 use TSS\Bootstrap\Controller\Plugin\EmailPlugin;
 use TSS\Bootstrap\Controller\Plugin\ImageThumbPlugin;
+use TSS\Bootstrap\View\Helper\Referer;
+use Zend\ServiceManager\ServiceLocatorInterface;
 
 return array(
     'controllers' => array(
@@ -35,6 +37,9 @@ return array(
                 return $thumbImage;
             },
         ),
+        'invokables' => array(
+            'tssReferer' => Controller\Plugin\Referer::class,
+        )
     ),
 
     'doctrine' => array(
@@ -66,6 +71,11 @@ return array(
                 $paginator->setParams($params);
 
                 return $paginator;
+            },
+            'tssReferer' => function (ServiceLocatorInterface $helpers) {
+                $application = $helpers->getServiceLocator()->get('Application');
+                $referer = new Referer($application->getRequest());
+                return $referer;
             },
         ),
         'invokables' => array(

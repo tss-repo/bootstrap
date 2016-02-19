@@ -13,7 +13,8 @@ use Zend\Mvc\Controller\Plugin\Params;
 use Zend\Paginator\Paginator;
 use Zend\View\Helper\AbstractHelper;
 
-class PaginatorHelper extends AbstractHelper {
+class PaginatorHelper extends AbstractHelper
+{
 
     /**
      * @var Params
@@ -36,12 +37,12 @@ class PaginatorHelper extends AbstractHelper {
         $this->params = $params;
     }
 
-    public function __invoke(Paginator $paginator = null, $route = null, $params = null, $options = null,  $scrollingStyle = 'sliding')
+    public function __invoke(Paginator $paginator = null, $route = null, $params = null, $options = null, $scrollingStyle = 'sliding')
     {
         if (count($paginator) != 0) {
             $paginationControl = $this->getView()->plugin('paginationControl');
 
-            if($options != null) {
+            if ($options != null) {
                 $options['query'] = $this->params->fromQuery();
             } else {
                 $options = array('query' => $this->params->fromQuery());

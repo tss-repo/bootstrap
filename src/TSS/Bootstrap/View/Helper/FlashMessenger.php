@@ -20,7 +20,7 @@ class FlashMessenger extends AbstractHelper
 
     public function render($partial = null)
     {
-        if($partial == null) {
+        if ($partial == null) {
             $partial = 'flashmessenger/default';
         }
 
