@@ -170,6 +170,8 @@ class MenuHelper extends Menu
     {
         // get label and title for translating
         $label = $page->getLabel();
+        $addonLeft = $page->get('addon-left');
+        $addonRight = $page->get('addon-right');
         $title = $page->getTitle();
 
         // translate label and title?
@@ -210,11 +212,17 @@ class MenuHelper extends Menu
         }
 
         $html = '<' . $element . $this->htmlAttribs($attribs) . '>';
+        if($addonLeft) {
+            $html .= $addonLeft;
+        }
         if ($escapeLabel === true) {
             $escaper = $this->view->plugin('escapeHtml');
             $html .= $escaper($label);
         } else {
             $html .= $label;
+        }
+        if($addonRight) {
+            $html .= $addonRight;
         }
         $html .= '</' . $element . '>';
 
