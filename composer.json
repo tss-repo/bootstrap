@@ -1,9 +1,9 @@
 {
-  "name": "thiagosxsantos/tss-bootstrap",
+  "name": "tss/bootstrap",
   "type": "library",
   "description": "TSS Bootstrap",
   "keywords": ["zf2", "bootstrap"],
-  "homepage": "https://bitbucket.org/thiagosxsantos/tss-bootstrap",
+  "homepage": "https://github.com/tss-repo/bootstrap",
   "license": "MIT",
   "authors": [
     {
