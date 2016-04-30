@@ -7,9 +7,9 @@ if ($this->pageCount):
             <?php
             if (isset($this->previous)):
                 $options['query']['page'] = $this->previous;
-            ?>
+                ?>
                 <li>
-                    <a href="<?php echo $this->url($route, $params, $options); ?>">
+                    <a href="<?php echo $this->url($route, $params, $options, $reuseMatchedParams); ?>">
                         <<
                     </a>
                 </li>
@@ -25,9 +25,9 @@ if ($this->pageCount):
                 <?php
                 if ($page != $this->current):
                     $options['query']['page'] = $page;
-                ?>
+                    ?>
                     <li>
-                        <a href="<?php echo $this->url($route, $params, $options); ?>">
+                        <a href="<?php echo $this->url($route, $params, $options, $reuseMatchedParams); ?>">
                             <?php echo $page; ?>
                         </a>
                     </li>
@@ -42,13 +42,13 @@ if ($this->pageCount):
             <?php
             if (isset($this->next)):
                 $options['query']['page'] = $this->next;
-            ?>
+                ?>
                 <li>
-                    <a href="<?php echo $this->url($route, $params, $options); ?>">
+                    <a href="<?php echo $this->url($route, $params, $options, $reuseMatchedParams); ?>">
                         >>
                     </a>
                 </li>
-                <?php else:?>
+            <?php else:?>
                 <li class="disabled">
                     <a href="#">
                         >>

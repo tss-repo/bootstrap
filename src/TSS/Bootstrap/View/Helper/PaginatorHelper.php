@@ -37,22 +37,31 @@ class PaginatorHelper extends AbstractHelper
         $this->params = $params;
     }
 
-    public function __invoke(Paginator $paginator = null, $route = null, $params = null, $options = null, $scrollingStyle = 'sliding')
+    public function __invoke(Paginator $paginator = null, $scrollingStyle = 'sliding', $partial = null, $params = null)
     {
         if (count($paginator) != 0) {
             $paginationControl = $this->getView()->plugin('paginationControl');
 
-            if ($options != null) {
-                $options['query'] = $this->params->fromQuery();
-            } else {
-                $options = array('query' => $this->params->fromQuery());
+            if ($params == null) {
+                $params = [];
+            }
+
+            if(!isset($params['route'])) {
+                $params['route'] = null;
+            }
+            if(!isset($params['params'])) {
+                $params['params'] = [];
+            }
+            $params['options']['query'] = $this->params->fromQuery();
+            if(!isset($params['reuseMatchedParams'])) {
+                $params['reuseMatchedParams'] = true;
             }
 
             return $paginationControl->__invoke(
                 $paginator,
                 $scrollingStyle,
-                array('paginator/default.phtml', 'TSS Bootstrap'),
-                array('route' => $route, 'params' => $params, 'options' => $options)
+                array('paginator/default.phtml', 'TSS/Bootstrap'),
+                $params
             );
         }
     }
