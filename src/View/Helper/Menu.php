@@ -12,9 +12,8 @@ namespace TSS\Bootstrap\View\Helper;
 use RecursiveIteratorIterator;
 use Zend\Navigation\AbstractContainer;
 use Zend\Navigation\Page\AbstractPage;
-use Zend\View\Helper\Navigation\Menu;
 
-class MenuHelper extends Menu
+class Menu extends \Zend\View\Helper\Navigation\Menu
 {
     /**
      * Renders a normal menu (called from {@link renderMenu()})
@@ -121,7 +120,7 @@ class MenuHelper extends Menu
             }
 
             // render li tag and page
-            $liClasses = array();
+            $liClasses = [];
             // Is page active?
             if ($isActive) {
                 $liClasses[] = 'active';
@@ -186,10 +185,10 @@ class MenuHelper extends Menu
         }
 
         // get attribs for element
-        $attribs = array(
+        $attribs = [
             'id' => $page->getId(),
             'title' => $title,
-        );
+        ];
 
         // add additional attributes
         $attr = $page->get('attribs');
@@ -212,7 +211,7 @@ class MenuHelper extends Menu
         }
 
         $html = '<' . $element . $this->htmlAttribs($attribs) . '>';
-        if($addonLeft) {
+        if ($addonLeft) {
             $html .= $addonLeft;
         }
         if ($escapeLabel === true) {
@@ -221,7 +220,7 @@ class MenuHelper extends Menu
         } else {
             $html .= $label;
         }
-        if($addonRight) {
+        if ($addonRight) {
             $html .= $addonRight;
         }
         $html .= '</' . $element . '>';

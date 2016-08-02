@@ -8,13 +8,11 @@
 
 namespace TSS\Bootstrap\Form;
 
-
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
 
 class SearchForm extends Form
 {
-
     public function __construct()
     {
         parent::__construct('search');
@@ -23,42 +21,41 @@ class SearchForm extends Form
         $this->setAttribute('role', 'form');
         $this->setLabel('Search');
 
-        $this->add(array(
+        $this->add([
             'name' => 'q',
             'type' => 'Text',
-            'attributes' => array(
+            'attributes' => [
                 'class' => 'form-control input-dark-bg'
-            ),
-        ));
+            ]
+        ]);
 
-        $this->add(array(
+        $this->add([
             'name' => 'submit',
             'type' => 'Submit',
-            'attributes' => array(
+            'attributes' => [
                 'class' => 'btn btn-default',
                 'value' => '<i class="fa fa-search"></i>',
-            ),
-        ));
+            ],
+        ]);
 
         $inputFilter = new InputFilter();
-        $inputFilter->add(array(
+        $inputFilter->add([
             'name' => 'q',
-            'filters' => array(
-                array('name' => 'StripTags'),
-                array('name' => 'StringTrim'),
-            ),
-            'validators' => array(
-                array(
+            'filters' => [
+                ['name' => 'StripTags'],
+                ['name' => 'StringTrim'],
+            ],
+            'validators' => [
+                [
                     'name' => 'StringLength',
-                    'options' => array(
+                    'options' => [
                         'encoding' => 'UTF-8',
                         'max' => 256,
-                    ),
-                ),
-            ),
-        ));
+                    ],
+                ],
+            ],
+        ]);
 
         $this->setInputFilter($inputFilter);
     }
-
 }

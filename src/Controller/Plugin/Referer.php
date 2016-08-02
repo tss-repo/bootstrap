@@ -8,7 +8,6 @@
 
 namespace TSS\Bootstrap\Controller\Plugin;
 
-
 use Traversable;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 use Zend\Mvc\Exception;
@@ -18,11 +17,11 @@ class Referer extends AbstractPlugin
     /**
      * Get referer URL based on a route
      *
-     * @param  string             $route              RouteInterface name
-     * @param  array|Traversable  $params             Parameters to use in url generation, if any
-     * @param  array|bool         $options            RouteInterface-specific options to use in url generation, if any.
+     * @param  string $route RouteInterface name
+     * @param  array|Traversable $params Parameters to use in url generation, if any
+     * @param  array|bool $options RouteInterface-specific options to use in url generation, if any.
      *                                                If boolean, and no fourth argument, used as $reuseMatchedParams.
-     * @param  bool               $reuseMatchedParams Whether to reuse matched parameters
+     * @param  bool $reuseMatchedParams Whether to reuse matched parameters
      *
      * @throws \Zend\Mvc\Exception\RuntimeException
      * @throws \Zend\Mvc\Exception\InvalidArgumentException
@@ -49,6 +48,6 @@ class Referer extends AbstractPlugin
         }
         // redirect to home if no referer or from another page
         $urlPlugin = $controller->plugin('url');
-        return $urlPlugin->fromRoute($route,$params, $options, $reuseMatchedParams);
+        return $urlPlugin->fromRoute($route, $params, $options, $reuseMatchedParams);
     }
 }

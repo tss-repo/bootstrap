@@ -8,11 +8,9 @@
 
 namespace TSS\Bootstrap\Hydrator;
 
-
 use TSS\Bootstrap\Hydrator\Strategy\DateTimeStrategy;
-use Zend\Stdlib\Hydrator\ClassMethods;
 
-class CustomTypes extends ClassMethods
+class ClassMethods extends \Zend\Hydrator\ClassMethods
 {
     /**
      * @param bool|true $underscoreSeparatedKeys
@@ -21,9 +19,8 @@ class CustomTypes extends ClassMethods
     {
         parent::__construct($underscoreSeparatedKeys);
 
-
-        $bdTimeStrategy = new DateTimeStrategy();
-        $this->strategies['created'] = $bdTimeStrategy;
-        $this->strategies['modified'] = $bdTimeStrategy;
+        $dateTimeStrategy = new DateTimeStrategy();
+        $this->strategies['createdAt'] = $dateTimeStrategy;
+        $this->strategies['updatedAt'] = $dateTimeStrategy;
     }
 }

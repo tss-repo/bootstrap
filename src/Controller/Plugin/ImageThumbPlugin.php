@@ -8,12 +8,10 @@
 
 namespace TSS\Bootstrap\Controller\Plugin;
 
-
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 
 class ImageThumbPlugin extends AbstractPlugin
 {
-
     /**
      * @var string
      */
@@ -50,11 +48,11 @@ class ImageThumbPlugin extends AbstractPlugin
             return $this->getDefaultImageThumb();
         }
 
-        if($thumbWidth == null) {
+        if ($thumbWidth == null) {
             $thumbWidth = $this->defaultThumbWidth;
         }
 
-        if($thumbHeight == null) {
+        if ($thumbHeight == null) {
             $thumbHeight = $this->defaultThumbHeight;
         }
 

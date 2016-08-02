@@ -2,19 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Thiago
- * Date: 26/10/2015
- * Time: 16:52
+ * Date: 02/09/2015
+ * Time: 08:22
  */
 
 namespace TSS\Bootstrap\Form\View\Helper;
 
-
 use Zend\Form\ElementInterface;
 use Zend\Form\View\Helper\FormRow as FormRowHelper;
 
-class FormCheckbox extends FormRowHelper
+class FormRow extends FormRowHelper
 {
-
     public function __invoke(ElementInterface $element = null, $labelPosition = null, $renderErrors = null, $partial = null)
     {
         if (!$element) {
@@ -34,7 +32,7 @@ class FormCheckbox extends FormRowHelper
         if ($partial !== null) {
             $this->setPartial($partial);
         } else {
-            $this->setPartial('form/checkbox');
+            $this->setPartial('form/row');
         }
 
         return $this->render($element);

@@ -40,7 +40,7 @@ class EmailPlugin extends AbstractPlugin
     /**
      * construct
      */
-    public function __construct($transport, $config = array())
+    public function __construct($transport, $config = [])
     {
         $this->controller = $this->getController();
         $this->transport = $transport;
@@ -115,7 +115,7 @@ class EmailPlugin extends AbstractPlugin
 
         } else {
             // No attachments, just add the two textual parts to the body
-            $body->setParts(array($textPart, $htmlPart));
+            $body->setParts([$textPart, $htmlPart]);
             $messageType = Mime\Mime::MULTIPART_ALTERNATIVE;
         }
 

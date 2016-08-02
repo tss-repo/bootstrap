@@ -8,7 +8,6 @@
 
 namespace TSS\Bootstrap\View\Helper;
 
-
 use Zend\View\Helper\AbstractHelper;
 
 class FlashMessenger extends AbstractHelper

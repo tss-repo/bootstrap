@@ -8,26 +8,28 @@
 
 namespace TSS\Bootstrap\Hydrator\Strategy;
 
+use Zend\Hydrator\Strategy\StrategyInterface;
 
-use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-
-class DateTimeStrategy implements  StrategyInterface {
-    public function extract($value) {
+class DateStrategy implements StrategyInterface
+{
+    public function extract($value)
+    {
         if ($value != null) {
-            return $value->format('d/m/Y h:i:s');
+            return $value->format('d/m/Y');
         }
 
         return $value;
     }
 
-    public function hydrate($value) {
-        if($value instanceof \DateTime) {
+    public function hydrate($value)
+    {
+        if ($value instanceof \DateTime) {
             return $value;
         }
 
         if (is_string($value)) {
             $timestamp = strtotime(str_replace('/', '-', $value));
-            return new \DateTime(date('Y-m-d h:i:s', $timestamp));
+            return new \DateTime(date('Y-m-d', $timestamp));
         }
 
         return $value;
