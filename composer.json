@@ -1,9 +1,9 @@
 {
-  "name": "tss/bootstrap",
+  "name": "zetta-code/tss-bootstrap",
   "type": "library",
   "description": "TSS Bootstrap",
   "keywords": ["zf2", "bootstrap"],
-  "homepage": "https://github.com/tss-repo/bootstrap",
+  "homepage": "https://github.com/zetta-code/tss-bootstrap",
   "license": "MIT",
   "authors": [
     {
