@@ -23,8 +23,9 @@ class ConfigProvider
     {
         return [
             'controller_plugins' => $this->getControllerPluginConfig(),
-            'view_helpers' => $this->getViewHelpers(),
-            'view_helper_config' => $this->getViewHelperConfig()
+            'view_helpers'       => $this->getViewHelpers(),
+            'view_helper_config' => $this->getViewHelperConfig(),
+            'view_manager'       => $this->getViewManagerConfig()
         ];
     }
 
@@ -99,6 +100,20 @@ class ConfigProvider
                 'message_close_string' => '</li></ul></div>',
                 'message_separator_string' => '</li><li>'
             ]
+        ];
+    }
+
+    /**
+     * Return component helpers configuration.
+     *
+     * @return array
+     */
+    public function getViewManagerConfig()
+    {
+        return [
+            'template_path_stack' => [
+                __DIR__ . '/../view',
+            ],
         ];
     }
 }

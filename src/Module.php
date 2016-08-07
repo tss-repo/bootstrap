@@ -19,7 +19,8 @@ class Module
         return [
             'controller_plugins' => $provider->getControllerPluginConfig(),
             'view_helpers'       => $provider->getViewHelpers(),
-            'view_helper_config' => $provider->getViewHelperConfig()
+            'view_helper_config' => $provider->getViewHelperConfig(),
+            'view_manager'       => $provider->getViewManagerConfig()
         ];
     }
 }

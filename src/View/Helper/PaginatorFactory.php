@@ -15,7 +15,7 @@ class PaginatorFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $params = $container->get('params');
+        $params = $container->get('ControllerPluginManager')->get('params');
 
         return new Paginator($params);
     }

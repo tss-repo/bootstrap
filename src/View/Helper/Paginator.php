@@ -45,7 +45,7 @@ class Paginator extends AbstractHelper
         $this->params = $params;
     }
 
-    public function __invoke(ZendPaginator $paginator = null, $scrollingStyle = 'sliding', $partial = null, $params = null)
+    public function __invoke(ZendPaginator $paginator = null, $scrollingStyle = 'Sliding', $partial = 'partial/paginator', $params = null)
     {
         if (count($paginator) != 0) {
             $paginationControl = $this->getView()->plugin('paginationControl');
@@ -68,7 +68,7 @@ class Paginator extends AbstractHelper
             return $paginationControl->__invoke(
                 $paginator,
                 $scrollingStyle,
-                ['paginator/default.phtml', 'TSS/Bootstrap'],
+                $partial,
                 $params
             );
         }
