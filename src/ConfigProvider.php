@@ -74,16 +74,12 @@ class ConfigProvider
         return [
             'aliases' => [
                 'tssFlashMessenger' => View\Helper\FlashMessenger::class,
-                'tssFormCheckbox' => Form\View\Helper\FormCheckbox::class,
                 'tssFormRow' => Form\View\Helper\FormRow::class,
-                'tssFormRowHorizontal' => Form\View\Helper\FormRowHorizontal::class,
                 'tssPaginator' => View\Helper\Paginator::class,
                 'tssReferer' => View\Helper\Referer::class,
             ],
             'factories' => [
-                Form\View\Helper\FormCheckbox::class => InvokableFactory::class,
                 Form\View\Helper\FormRow::class => InvokableFactory::class,
-                Form\View\Helper\FormRowHorizontal::class => InvokableFactory::class,
                 View\Helper\FlashMessenger::class => InvokableFactory::class,
                 View\Helper\Paginator::class => PaginatorFactory::class,
                 View\Helper\Referer::class => RefererFactory::class,
