@@ -18,7 +18,8 @@ class Module
         $provider = new ConfigProvider();
         return [
             'controller_plugins' => $provider->getControllerPluginConfig(),
-            'view_helpers'       => $provider->getViewHelperConfig(),
+            'view_helpers'       => $provider->getViewHelpers(),
+            'view_helper_config' => $provider->getViewHelperConfig()
         ];
     }
 }

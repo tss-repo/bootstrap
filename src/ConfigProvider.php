@@ -4,9 +4,7 @@
  * @copyright Copyright (c) 2016 Thiago S. Santos
  */
 
-
 namespace TSS\Bootstrap;
-
 
 use TSS\Bootstrap\Controller\Plugin\EmailPluginFactory;
 use TSS\Bootstrap\Controller\Plugin\ImageTumbPluginFactory;
@@ -25,7 +23,8 @@ class ConfigProvider
     {
         return [
             'controller_plugins' => $this->getControllerPluginConfig(),
-            'view_helpers'       => $this->getViewHelperConfig(),
+            'view_helpers' => $this->getViewHelpers(),
+            'view_helper_config' => $this->getViewHelperConfig()
         ];
     }
 
@@ -69,7 +68,7 @@ class ConfigProvider
      *
      * @return array
      */
-    public function getViewHelperConfig()
+    public function getViewHelpers()
     {
         return [
             'aliases' => [
@@ -86,9 +85,20 @@ class ConfigProvider
             ],
         ];
     }
-//'flashmessenger' => array(
-//'message_open_format' => '<div%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>',
-//'message_close_string' => '</li></ul></div>',
-//'message_separator_string' => '</li><li>'
-//)
+
+    /**
+     * Return component helpers configuration.
+     *
+     * @return array
+     */
+    public function getViewHelperConfig()
+    {
+        return [
+            'flashmessenger' => [
+                'message_open_format' => '<div%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>',
+                'message_close_string' => '</li></ul></div>',
+                'message_separator_string' => '</li><li>'
+            ]
+        ];
+    }
 }
