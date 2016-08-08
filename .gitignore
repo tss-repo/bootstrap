@@ -4,8 +4,8 @@ nbproject
 .~lock.*
 .buildpath
 .DS_Store
-.idea
+.idea/
 .project
 .settings
-vendor
+vendor/
 composer.phar
