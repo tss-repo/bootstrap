@@ -1,7 +1,7 @@
 <?php
 /**
  * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
- * @copyright Copyright (c) 2016 Thiago S. Santos
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap;
@@ -10,16 +10,12 @@ use TSS\Bootstrap\Controller\Plugin\EmailPluginFactory;
 use TSS\Bootstrap\Controller\Plugin\ImageTumbPluginFactory;
 use TSS\Bootstrap\View\Helper\PaginatorFactory;
 use TSS\Bootstrap\View\Helper\RefererFactory;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
-class ConfigProvider
+class ConfigProvider implements ConfigProviderInterface
 {
-    /**
-     * Return configuration for this component.
-     *
-     * @return array
-     */
-    public function __invoke()
+    public function getConfig()
     {
         return [
             'controller_plugins' => $this->getControllerPluginConfig(),
@@ -27,6 +23,16 @@ class ConfigProvider
             'view_helper_config' => $this->getViewHelperConfig(),
             'view_manager'       => $this->getViewManagerConfig()
         ];
+    }
+
+    /**
+     * Return configuration for this component.
+     *
+     * @return array
+     */
+    public function __invoke()
+    {
+        return $this->getConfig();
     }
 
     /**

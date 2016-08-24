@@ -1,7 +1,7 @@
 <?php
 /**
  * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
- * @copyright Copyright (c) 2016 Thiago S. Santos
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap;
@@ -16,11 +16,6 @@ class Module
     public function getConfig()
     {
         $provider = new ConfigProvider();
-        return [
-            'controller_plugins' => $provider->getControllerPluginConfig(),
-            'view_helpers'       => $provider->getViewHelpers(),
-            'view_helper_config' => $provider->getViewHelperConfig(),
-            'view_manager'       => $provider->getViewManagerConfig()
-        ];
+        return $provider->getConfig();
     }
 }

@@ -7,5 +7,5 @@ You can install this plugin into your ZendFramework application using [composer]
 The recommended way to install composer packages is:
 
 ```
-composer require zetta-code/tss-boostrap
+composer require zetta-code/tss-bootstrap
 ```

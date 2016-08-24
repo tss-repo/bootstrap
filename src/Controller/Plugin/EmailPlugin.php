@@ -38,7 +38,9 @@ class EmailPlugin extends AbstractPlugin
     protected $transport;
 
     /**
-     * construct
+     * EmailPlugin constructor.
+     * @param $transport
+     * @param array $config
      */
     public function __construct($transport, $config = [])
     {
