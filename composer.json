@@ -31,7 +31,8 @@
     "zendframework/zend-form": "^2.9",
     "zendframework/zend-navigation": "^2.8",
     "zendframework/zend-paginator": "^2.7",
-    "zendframework/zend-mail": "^2.7"
+    "zendframework/zend-mail": "^2.7",
+    "jenssegers/date": "^3.2"
   },
   "extra": {
     "zf": {
