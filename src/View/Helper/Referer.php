@@ -1,13 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Thiago
- * Date: 19/02/2016
- * Time: 20:10
+ * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap\View\Helper;
-
 
 use Traversable;
 use Zend\Stdlib\RequestInterface;
@@ -30,10 +27,10 @@ class Referer extends AbstractHelper
     }
 
     /**
-     * @param  string               $name               Name of the route
-     * @param  array                $params             Parameters for the link
-     * @param  array|Traversable    $options            Options for the route
-     * @param  bool                 $reuseMatchedParams Whether to reuse matched parameters
+     * @param  string $name Name of the route
+     * @param  array $params Parameters for the link
+     * @param  array|Traversable $options Options for the route
+     * @param  bool $reuseMatchedParams Whether to reuse matched parameters
      * @return string Url                         For the link href attribute
      */
     public function __invoke($name = null, $params = [], $options = [], $reuseMatchedParams = false)

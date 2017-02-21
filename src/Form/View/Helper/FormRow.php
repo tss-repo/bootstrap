@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Thiago
- * Date: 02/09/2015
- * Time: 08:22
+ * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap\Form\View\Helper;
@@ -64,14 +62,14 @@ class FormRow extends FormRowHelper
         }
 
         $divOption = $element->getOption('div');
-        if(!empty($divOption)) {
+        if (!empty($divOption)) {
             $divClass = isset($divOption['class']) ? $divOption['class'] : '';
             $divErrorClass = isset($divOption['class_error']) ? $divOption['class_error'] : '';
             if (count($element->getMessages()) > 0 && !empty($divErrorClass)) {
                 $divClass = !empty($divClass) ? $divClass . ' ' : '';
                 $divClass = $divClass . $divErrorClass;
             }
-            if(!empty($divClass)) {
+            if (!empty($divClass)) {
                 $div = sprintf('<div class="%s">', $divClass) . '%s</div>';
             } else {
                 $div = '<div>%s</div>';
@@ -123,7 +121,7 @@ class FormRow extends FormRowHelper
                 );
             } else {
                 $horizontalClass = $element->getOption('horizontal_class');
-                if(!empty($horizontalClass)) {
+                if (!empty($horizontalClass)) {
                     $elementString = '<div class="' . $horizontalClass . '">' . $elementString . $elementErrors . '</div>';
                 }
 

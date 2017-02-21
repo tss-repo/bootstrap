@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Thiago
- * Date: 30/10/2015
- * Time: 13:29 PM
+ * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap\Hydrator\Strategy;

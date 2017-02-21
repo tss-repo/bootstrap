@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Thiago
- * Date: 23/07/2015
- * Time: 09:57 AM
+ * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap\Controller\Plugin;

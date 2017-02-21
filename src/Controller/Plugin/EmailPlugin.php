@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * Usuario: Thiago S. Santos
- * Date: 21/1/2015
- * Time: 1:26 PM
+ * @link      http://github.com/zetta-repo/tss-bootstrap for the canonical source repository
+ * @copyright Copyright (c) 2016 Zetta Code
  */
 
 namespace TSS\Bootstrap\Controller\Plugin;
@@ -50,6 +48,18 @@ class EmailPlugin extends AbstractPlugin
         $this->fromName = $config['from-name'];
     }
 
+    public function send($to, $subject, $body)
+    {
+        $message = new Message();
+        $message->addTo($to);
+        $message->setEncoding($this->encoding);
+        $message->addFrom($this->fromEmail, $this->fromName);
+        $message->setSubject($subject);
+        $message->setBody($body);
+
+        $this->getTransport()->send($message);
+    }
+
     /**
      * @return mixed
      */
@@ -64,18 +74,6 @@ class EmailPlugin extends AbstractPlugin
     public function setTransport($transport)
     {
         $this->transport = $transport;
-    }
-
-    public function send($to, $subject, $body)
-    {
-        $message = new Message();
-        $message->addTo($to);
-        $message->setEncoding($this->encoding);
-        $message->addFrom($this->fromEmail, $this->fromName);
-        $message->setSubject($subject);
-        $message->setBody($body);
-
-        $this->getTransport()->send($message);
     }
 
     function sendEmail($to, $subject, $html, $text, $attachments = null)

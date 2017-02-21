@@ -12,24 +12,6 @@ use Zend\View\Helper\Navigation\Menu;
 
 class ConfigProvider implements ConfigProviderInterface
 {
-    public function getConfig()
-    {
-        return [
-            'controller_plugins' => $this->getControllerPluginConfig(),
-            'view_helpers'       => $this->getViewHelpers(),
-            'view_helper_config' => $this->getViewHelperConfig(),
-            'navigation_helpers' => [
-                'aliases' => [
-                    Menu::class => View\Helper\Menu::class,
-                ],
-                'factories' => [
-                   View\Helper\Menu::class => InvokableFactory::class
-                ]
-            ],
-            'view_manager'       => $this->getViewManagerConfig(),
-        ];
-    }
-
     /**
      * Return configuration for this component.
      *
@@ -38,6 +20,24 @@ class ConfigProvider implements ConfigProviderInterface
     public function __invoke()
     {
         return $this->getConfig();
+    }
+
+    public function getConfig()
+    {
+        return [
+            'controller_plugins' => $this->getControllerPluginConfig(),
+            'view_helpers' => $this->getViewHelpers(),
+            'view_helper_config' => $this->getViewHelperConfig(),
+            'navigation_helpers' => [
+                'aliases' => [
+                    Menu::class => View\Helper\Menu::class,
+                ],
+                'factories' => [
+                    View\Helper\Menu::class => InvokableFactory::class
+                ]
+            ],
+            'view_manager' => $this->getViewManagerConfig(),
+        ];
     }
 
     /**
