@@ -11,7 +11,15 @@ use Zend\Hydrator\Strategy\StrategyInterface;
 
 class DateTimeStrategy implements StrategyInterface
 {
+    /**
+     * @var string
+     */
     protected $time = 'H:i';
+
+    /**
+     * @var \IntlDateFormatter
+     */
+    protected $formatter;
 
     /**
      * DateTimeStrategy constructor.
@@ -19,6 +27,7 @@ class DateTimeStrategy implements StrategyInterface
      */
     public function __construct($time = 'H:i')
     {
+        $this->formatter = new \IntlDateFormatter(null, \IntlDateFormatter::SHORT, \IntlDateFormatter::NONE);
         $this->time = $time;
     }
 
@@ -45,8 +54,6 @@ class DateTimeStrategy implements StrategyInterface
     }
 
     private function getDateFormat() {
-        $formatter = new \IntlDateFormatter(null, \IntlDateFormatter::SHORT, \IntlDateFormatter::NONE);
-
         $patterns = array(
             '/11\D21\D(1999|99)/',
             '/21\D11\D(1999|99)/',
@@ -56,7 +63,7 @@ class DateTimeStrategy implements StrategyInterface
 
         $date = new \DateTime();
         $date->setDate(1999, 11, 21);
-        return preg_replace($patterns, $replacements, $formatter->format($date)) . ' ' . $this->time;
+        return preg_replace($patterns, $replacements, $this->formatter->format($date)) . ' ' . $this->time;
     }
 
     /**

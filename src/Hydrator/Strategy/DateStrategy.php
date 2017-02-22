@@ -11,6 +11,16 @@ use Zend\Hydrator\Strategy\StrategyInterface;
 
 class DateStrategy implements StrategyInterface
 {
+    /**
+     * @var \IntlDateFormatter
+     */
+    protected $formatter;
+
+    public function __construct()
+    {
+        $this->formatter = new \IntlDateFormatter(null, \IntlDateFormatter::SHORT, \IntlDateFormatter::NONE);
+    }
+
     public function extract($value)
     {
         if ($value != null) {
@@ -34,7 +44,6 @@ class DateStrategy implements StrategyInterface
     }
 
     private function getDateFormat() {
-        $formatter = new \IntlDateFormatter(null, \IntlDateFormatter::SHORT, \IntlDateFormatter::NONE);
 
         $patterns = array(
             '/11\D21\D(1999|99)/',
@@ -45,6 +54,6 @@ class DateStrategy implements StrategyInterface
 
         $date = new \DateTime();
         $date->setDate(1999, 11, 21);
-        return preg_replace($patterns, $replacements, $formatter->format($date));
+        return preg_replace($patterns, $replacements, $this->formatter->format($date));
     }
 }
